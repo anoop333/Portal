@@ -27,6 +27,6 @@ public class Splash_Screen extends AppCompatActivity {
             }
         };
         // start thread
-        background.start();
+        background.start();//
     }
 }
