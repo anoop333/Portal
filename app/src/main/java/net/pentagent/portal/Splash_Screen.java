@@ -9,7 +9,6 @@ public class Splash_Screen extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
-
         Thread background = new Thread() {
             public void run() {
                 try {
