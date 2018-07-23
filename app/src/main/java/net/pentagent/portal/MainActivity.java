@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
 
-    WebView web;
+    WebView web;//DEMO
 
     @SuppressLint("SetJavaScriptEnabled")//
     @Override
