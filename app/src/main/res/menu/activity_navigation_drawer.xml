@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/call"
+            android:title="(+91)8330001081" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/call1"
+            android:title="(+91)8330001082" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/web"
+            android:title="http://www.pentagent.net" />
+
+    </group>
+
+</menu>
