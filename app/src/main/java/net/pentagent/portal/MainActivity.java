@@ -11,14 +11,12 @@ import android.view.KeyEvent;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
-
-
 public class MainActivity extends Activity {
 
 
-    WebView web;//DEMO
+    WebView web;//webview
 
-    @SuppressLint("SetJavaScriptEnabled")//
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
