@@ -53,12 +53,13 @@ public class navigation extends AppCompatActivity
                 super.onBackPressed();
             }
         }
+        }
 
 
 
-        @SuppressWarnings("StatementWithEmptyBody")
-        @Override
-        public boolean onNavigationItemSelected (MenuItem item){
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item){
             // Handle navigation view item clicks here.
             int id = item.getItemId();
 
@@ -81,6 +82,6 @@ public class navigation extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
             return true;
         }
-    }
+
     }
 
