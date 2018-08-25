@@ -1,10 +1,13 @@
 package net.pentagent.portal;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -25,16 +28,15 @@ public class navigation extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
-        initInstances();
+
         WebView myWebView = (WebView) findViewById(R.id.web);
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.loadUrl("http://www.pentagent.net");
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         myWebView.setWebViewClient(new WebViewClient());
-    }
 
-    private void initInstances() {
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -48,31 +50,39 @@ public class navigation extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
     }
-        @Override
-        public void onBackPressed()
-        {
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            if (drawer.isDrawerOpen(GravityCompat.START)) {
-                drawer.closeDrawer(GravityCompat.START);
-            } else {
-                super.onBackPressed();
-            }
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
-
-
+    }
 
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item){
-            // Handle navigation view item clicks here.
-            int id = item.getItemId();
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
 
-            if (id == R.id.nav_camera) {
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:8330001081"));
-                startActivity(callIntent);
+        if (id == R.id.nav_camera) {
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:8330001081"));
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+               // return TODO;
+            }
+            startActivity(callIntent);
 
             } else if (id == R.id.nav_gallery) {
                 Intent callInten = new Intent(Intent.ACTION_CALL);
@@ -80,8 +90,8 @@ public class navigation extends AppCompatActivity
                 startActivity(callInten);
 
             } else if (id == R.id.nav_slideshow) {
-                ///Webview web;
-              //  web.loadUrl("http://www.pentagent.net");
+              Intent intent=new Intent(this,pentaweb.class);
+              startActivity(intent);
             }
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
