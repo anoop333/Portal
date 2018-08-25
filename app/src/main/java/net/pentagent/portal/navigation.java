@@ -1,5 +1,7 @@
 package net.pentagent.portal;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +14,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,9 +48,10 @@ public class navigation extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+    }
         @Override
-        public void onBackPressed() {
+        public void onBackPressed()
+        {
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             if (drawer.isDrawerOpen(GravityCompat.START)) {
                 drawer.closeDrawer(GravityCompat.START);
@@ -53,7 +59,7 @@ public class navigation extends AppCompatActivity
                 super.onBackPressed();
             }
         }
-        }
+
 
 
 
@@ -74,8 +80,8 @@ public class navigation extends AppCompatActivity
                 startActivity(callInten);
 
             } else if (id == R.id.nav_slideshow) {
-                Webview web;
-                web.loadUrl("http://www.pentagent.net");
+                ///Webview web;
+              //  web.loadUrl("http://www.pentagent.net");
             }
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
